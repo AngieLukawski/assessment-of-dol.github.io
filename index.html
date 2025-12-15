@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Essential Role of the "Other" in Individual Freedom | Catholic Ethics</title>
+    <style>
+        :root {
+            --color-primary: #2980b9;
+            --color-secondary: #d4af37;
+            --color-accent: #e8f4f8;
+            --color-dark: #1a3a4a;
+            --color-light: #f9f9f7;
+            --color-text: #2c3e50;
+            --color-border: #bdc3c7;
+            --font-family: 'Georgia', 'Garamond', serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--color-text);
+            background-color: var(--color-light);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(41, 128, 185, 0.9) 0%, rgba(26, 58, 74, 0.9) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect fill="url(%23dots)" width="1200" height="600"/></svg>');
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1.5rem auto;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .scripture-quote {
+            background: rgba(212, 175, 55, 0.2);
+            border-left: 4px solid var(--color-secondary);
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin: 4rem 0;
+            scroll-margin-top: 60px;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--color-secondary);
+        }
+
+        section h3 {
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Card Layout */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--color-secondary);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h4 {
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Definition Box */
+        .definition-box {
+            background: linear-gradient(135deg, var(--color-accent) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border-left: 5px solid var(--color-secondary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .definition-box strong {
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: white;
+            border-left: 5px solid var(--color-secondary);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--color-dark);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .quote-attribution {
+            font-style: normal;
+            margin-top: 1rem;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        /* Reflection Section */
+        .reflection {
+            background: linear-gradient(135deg, var(--color-accent) 0%, white 100%);
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            border: 2px solid var(--color-secondary);
+        }
+
+        .reflection h3 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+
+        .reflection-questions {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .reflection-questions li {
+            padding: 1rem;
+            margin: 1rem 0;
+            background: white;
+            border-left: 4px solid var(--color-secondary);
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .reflection-questions li:hover {
+            transform: translateX(5px);
+        }
+
+        .reflection-questions li:before {
+            content: "✦ ";
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+
+        /* Reference Section */
+        .references {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .references ol {
+            margin-left: 1.5rem;
+            line-height: 2;
+        }
+
+        .references li {
+            margin: 0.8rem 0;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--color-secondary);
+            color: var(--color-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: none;
+            z-index: 999;
+        }
+
+        .scroll-top:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .reflection {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Highlight Text */
+        .highlight {
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.3) 0%, transparent 100%);
+            padding: 0 2px;
+        }
+
+        /* Key Concept */
+        .concept {
+            display: inline-block;
+            background: var(--color-accent);
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            font-weight: 500;
+            color: var(--color-primary);
+        }
+
+        /* Icon Section */
+        .icon-text {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin: 1.5rem 0;
+        }
+
+        .icon {
+            font-size: 2rem;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .text {
+            flex: 1;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .comparison table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison th {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .comparison tr:hover {
+            background: var(--color-accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#understanding">Understanding Freedom</a></li>
+            <li><a href="#the-other">The Other</a></li>
+            <li><a href="#community">Community & Society</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+            <li><a href="#sources">Sources</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+        <h1>The Essential Role of the "Other" in Individual Freedom</h1>
+  	<p style="margin-top: 0.5rem; font-size: 1rem; opacity: 0.9;">
+            by Angelica Lukawski
+        </p>
+
+        <p>Understanding how true human freedom, in Catholic teaching, is discovered through relationship, love, and community rather than isolation.</p>
+        <div class="scripture-quote">
+            "You shall love your neighbor as yourself." — Mark 12:31
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Section 1: Understanding True Freedom -->
+        <section id="understanding">
+            <h2>Section 1: Understanding True Freedom in Catholic Teaching</h2>
+            
+            <p>In our modern world, many people understand freedom as the ability to do "whatever we want." But Catholic teaching offers a profoundly different vision: <span class="highlight">true freedom is not about unlimited choice, but about choosing the good in response to love and truth.</span></p>
+
+            <div class="quote-block">
+                "Freedom is exercised in relationships between human beings. Every human person, created in the image of God, has the natural right to be recognized as a free and responsible being."
+                <div class="quote-attribution">— Catechism of the Catholic Church, #1738</div>
+            </div>
+
+            <h3>What Does True Freedom Mean?</h3>
+            <p>Freedom, in the Catholic understanding, is the capacity to choose what is genuinely good. It is not merely the absence of external constraints, but rather the presence of <span class="concept">internal mastery of oneself</span> through virtue, wisdom, and love. The more we choose what is good, the more truly free we become.</p>
+
+            <div class="definition-box">
+                <strong>Key Insight from CCC #1733:</strong> "The more one does what is good, the freer one becomes. There is no true freedom except in the service of what is good and just."
+            </div>
+
+            <h3>Core Concepts in Catholic Freedom</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>🕊️ Moral Responsibility</h4>
+                    <p>Freedom always comes with responsibility. When we make choices, we are accountable for them. Freedom means owning our actions and their consequences.</p>
+                </div>
+                <div class="card">
+                    <h4>✨ Free Will</h4>
+                    <p>The divine gift that allows us to make choices. Our free will is not absolute but ordered toward the good—it finds its truest expression in choosing what is loving and just.</p>
+                </div>
+                <div class="card">
+                    <h4>👤 Human Dignity</h4>
+                    <p>Every person is created in the image of God and possesses inherent worth. This dignity demands that we recognize freedom in others and protect it in ourselves.</p>
+                </div>
+                <div class="card">
+                    <h4>🌱 Virtue</h4>
+                    <p>Habitual excellence in choosing the good. Through practicing virtues like courage, justice, wisdom, and love, we become truly free people.</p>
+                </div>
+                <div class="card">
+                    <h4>🤝 Community</h4>
+                    <p>We are made for relationship. Our freedom is realized not in isolation, but in communion with others, where we learn, grow, and become our best selves.</p>
+                </div>
+                <div class="card">
+                    <h4>🌍 Solidarity</h4>
+                    <p>A commitment to the common good and the welfare of all. Our freedom is incomplete if it does not care for the freedom and dignity of others.</p>
+                </div>
+            </div>
+
+            <h3>The Slavery of Sin</h3>
+            <p>Catholic teaching warns us that choosing evil appears to be freedom, but it is actually a <span class="highlight">false freedom that leads to slavery.</span> When we violate conscience and choose what is harmful—to ourselves or others—we become enslaved to sin. True freedom, by contrast, liberates us and brings us closer to God and to one another.</p>
+
+            <div class="quote-block">
+                "For freedom Christ has set us free."
+                <div class="quote-attribution">— Galatians 5:1</div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Role of the Other -->
+        <section id="the-other">
+            <h2>Section 2: The Essential Role of the "Other"</h2>
+
+            <p>One of the most beautiful insights of Catholic theology is that <span class="highlight">authentic freedom requires the presence of the "other."</span> We do not become free in isolation; rather, our freedom is deepened, challenged, and ultimately fulfilled through relationships with others.</p>
+
+            <h3>How Others Help Us Discover True Freedom</h3>
+
+            <div class="icon-text">
+                <div class="icon">📚</div>
+                <div class="text">
+                    <strong>Through Teaching and Example:</strong> Others show us what goodness, virtue, and love look like in concrete ways. Parents, teachers, friends, and mentors help us understand moral truth through their lives and guidance.
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon">🪞</div>
+                <div class="text">
+                    <strong>Through Reflection:</strong> When we encounter another person, we are challenged to see ourselves more clearly. Their presence invites us to examine our choices, to grow in self-awareness, and to develop our conscience.
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon">❤️</div>
+                <div class="text">
+                    <strong>Through Love:</strong> Love—sacrificial, generous, other-centered—is what makes true freedom possible. When we love another, we freely choose their good, and in doing so, we discover the deepest meaning of our own freedom.
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon">🧗</div>
+                <div class="text">
+                    <strong>Through Challenge and Growth:</strong> Others call us to be better than we are. Their needs, their struggles, and their presence push us to grow in virtue and to transcend selfish impulses.
+                </div>
+            </div>
+
+            <h3>The Theology of the Body and Freedom</h3>
+            <p>Pope John Paul II's <span class="concept">Theology of the Body</span> teaches that the human body itself reveals a fundamental truth: we are made for relationship. Our masculinity and femininity are gifts designed for self-giving love. True freedom is the capacity to give ourselves completely to another in the sincere gift of ourselves.</p>
+
+            <div class="quote-block">
+                "The human person becomes a gift in the freedom of love... [Freedom] lies at the basis of the nuptial meaning of the body. The human body, with its sex and its masculinity and femininity, includes the capacity of expressing love, that love in which the person becomes a gift."
+                <div class="quote-attribution">— Pope John Paul II, Theology of the Body</div>
+            </div>
+
+            <h3>Gaudium et Spes: The Joy and Hope of Vatican II</h3>
+            <p>The Second Vatican Council's document <span class="concept">Gaudium et Spes</span> (Joy and Hope) emphasizes that God did not create people to live in isolation. We are called to develop society and community. The document reminds us that all people possess equal dignity and are called to live in brotherhood and sisterhood with one another.</p>
+
+            <div class="definition-box">
+                <strong>Core Teaching:</strong> Each human being, created in God's image, is called to communion with God and with others. This communion is not optional—it is fundamental to what it means to be human and to be free.
+            </div>
+
+            <h3>Modern Examples of Relational Freedom</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>🤲 Volunteering & Service</h4>
+                    <p>When we freely choose to serve others—at food banks, shelters, hospitals, or in our neighborhoods—we exercise a profound freedom. We give ourselves away and discover that this gift-giving is deeply liberating.</p>
+                </div>
+                <div class="card">
+                    <h4>🕊️ Social Movements</h4>
+                    <p>Young people organizing for justice, peace, and care for our common home exercise freedom by standing in solidarity with the vulnerable and marginalized. True freedom includes the courage to speak truth.</p>
+                </div>
+                <div class="card">
+                    <h4>👨‍👩‍👧 Family & Friendship</h4>
+                    <p>In families and friendships, we practice daily freedom—choosing patience, forgiveness, sacrifice, and presence. These relationships are schools of freedom where we learn to love.</p>
+                </div>
+                <div class="card">
+                    <h4>🌱 Environmental Stewardship</h4>
+                    <p>Caring for creation is an exercise of freedom rooted in responsibility to others—both living now and generations to come. We freely choose to protect what God has entrusted to us.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Freedom in Community and Society -->
+        <section id="community">
+            <h2>Section 3: Freedom in Community and Society</h2>
+
+            <p>Catholic social teaching connects personal freedom to the <span class="concept">common good</span>—the well-being of the entire community. Our individual freedom and society's freedom are inseparably linked.</p>
+
+            <h3>Key Principles of Catholic Social Teaching</h3>
+
+            <div class="comparison">
+                <table>
+                    <tr>
+                        <th>Principle</th>
+                        <th>What It Means</th>
+                        <th>How It Protects Freedom</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Subsidiarity</strong></td>
+                        <td>Decisions should be made at the most local level possible, closest to those affected.</td>
+                        <td>Respects the freedom of smaller communities and individuals rather than centralizing all power.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Solidarity</strong></td>
+                        <td>We are responsible for one another's welfare; our freedom includes caring for the common good.</td>
+                        <td>Protects everyone's freedom by ensuring that society supports the dignity and needs of all members.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Human Dignity</strong></td>
+                        <td>Every person has inherent worth simply by being created in God's image.</td>
+                        <td>Guarantees that laws and systems must respect each person's freedom and rights.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Common Good</strong></td>
+                        <td>The sum total of social conditions allowing people to achieve fulfillment.</td>
+                        <td>Ensures freedom for all, not just the privileged few; true freedom cannot coexist with others' oppression.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Living Out Relational Freedom Together</h3>
+
+            <p>Catholic faith communities worldwide demonstrate how freedom flourishes when rooted in solidarity and the common good:</p>
+
+            <div class="icon-text">
+                <div class="icon">⛪</div>
+                <div class="text">
+                    <strong>Parish Communities:</strong> Parishes gather people of diverse ages, backgrounds, and circumstances. In worship, service, and mutual support, they exercise collective freedom while honoring each person's dignity.
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon">🏥</div>
+                <div class="text">
+                    <strong>Catholic Healthcare & Education:</strong> Catholic hospitals, schools, and universities freely choose to serve the poor and marginalized, exercising social freedom rooted in solidarity with the vulnerable.
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon">🌍</div>
+                <div class="text">
+                    <strong>Global Advocacy:</strong> Catholic organizations work for justice, peace, and respect for human rights worldwide. This is freedom exercised in service to the common good across borders.
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon">🏠</div>
+                <div class="text">
+                    <strong>Community Development:</strong> Catholic communities engage in housing initiatives, job training, and advocacy for the poor, believing that everyone deserves the material conditions necessary to exercise their freedom with dignity.
+                </div>
+            </div>
+
+            <div class="quote-block">
+                "God did not create people to live in isolation, but to develop society and community. We are to treat one another in the spirit of brotherhood."
+                <div class="quote-attribution">— Gaudium et Spes, Vatican II</div>
+            </div>
+        </section>
+
+        <!-- Section 4: Personal Reflection -->
+        <section id="reflection">
+            <div class="reflection">
+                <h3>Personal Reflection: Freedom and the Other in Your Life</h3>
+                <p>Catholic teaching invites us to examine our own experiences of freedom through the lens of relationship. Take time to reflect on these questions:</p>
+                
+                <ul class="reflection-questions">
+                    <li>How have others—parents, friends, teachers, mentors—helped shape the moral choices you make? In what ways have they made you more free?</li>
+                    <li>When have you experienced true freedom not in doing what you wanted, but in freely choosing to serve or love someone else?</li>
+                    <li>Can you think of a time when you felt trapped or enslaved by your own choices? What made you feel unfree?</li>
+                    <li>In what ways does love make you free? How does self-giving express your deepest freedom?</li>
+                    <li>What role does your community—family, friends, faith community, school—play in your freedom?</li>
+                    <li>How might you exercise your freedom today in solidarity with someone else or for the common good?</li>
+                    <li>What does it mean to you that you are created in the image of God? How does this truth relate to your freedom?</li>
+                    <li>Is there a relationship in your life where you are learning to choose the good, even when it's difficult? What is that teaching you about real freedom?</li>
+                </ul>
+
+                <p style="margin-top: 2rem; font-style: italic; color: var(--color-primary);">
+                    Consider journaling your thoughts or discussing these questions with a trusted mentor, friend, or spiritual director. The examined life—and the life lived in honest relationship with others—is the path to authentic freedom.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sources and References -->
+        <section id="sources">
+            <h2>Sources and References</h2>
+            <p>This site draws from authoritative Catholic teachings on freedom, human dignity, and community. All quotations and references are sourced from the following:</p>
+            
+            <div class="references">
+                <ol>
+                    <li>
+                        <strong>The Holy Bible, New Revised Standard Version (NRSV).</strong> Mark 12:31; Galatians 5:1. Sacred Scripture is the foundation of all Catholic teaching and the primary source for understanding God's call to freedom in love.
+                    </li>
+                    <li>
+                        <strong>The Catechism of the Catholic Church (CCC).</strong> Paragraphs 1731–1748. These sections provide official Catholic teaching on human freedom, moral responsibility, dignity, and how freedom is exercised in relationships. The CCC teaches that "freedom is exercised in relationships between human beings" (#1738) and that true freedom serves what is good and just.
+                    </li>
+                    <li>
+                        <strong>Gaudium et Spes (Pastoral Constitution on the Church in the Modern World).</strong> Second Vatican Council, 1965. This landmark document emphasizes that humans are created for communion, not isolation, and that dignity, community, and the common good are inseparable from authentic freedom.
+                    </li>
+                    <li>
+                        <strong>Pope John Paul II.</strong> <em>Theology of the Body: Audiences.</em> Weekly audiences beginning January 1980. This series of teachings reveals how the human body—with its masculinity and femininity—expresses the freedom of the gift of self in love, foundational to relational freedom.
+                    </li>
+                    <li>
+                        <strong>Vatican Council II.</strong> <em>Dignitatis Humanae (Declaration on Religious Freedom).</em> 1965. This document affirms that respect for freedom is essential to human dignity and the social order, grounded in the recognition of each person's conscience and responsibility.
+                    </li>
+                    <li>
+                        <strong>Pope Leo XIII.</strong> <em>Rerum Novarum (On Capital and Labor).</em> 1891. A foundational Catholic social encyclical that connects human dignity, social justice, and community rights—establishing the tradition of Catholic social teaching.
+                    </li>
+                </ol>
+
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid var(--color-border);">
+                    <p><strong>For Further Learning:</strong></p>
+                    <ul style="margin-left: 1.5rem; line-height: 2;">
+                        <li><em>Caritas in Veritate</em> (Charity in Truth) by Pope Benedict XVI – on freedom, truth, and charity in human development</li>
+                        <li><em>Laudato Si'</em> (On Care for Our Common Home) by Pope Francis – freedom exercised in solidarity with creation and future generations</li>
+                        <li>The Vatican website (vatican.va) offers the full texts of papal documents and Church teachings</li>
+                        <li>Catholic Catechism online resources and study guides for deeper exploration of these themes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Reflection -->
+        <div style="background: linear-gradient(135deg, var(--color-accent) 0%, white 100%); padding: 2rem; margin: 3rem 0; border-radius: 8px; text-align: center; border: 2px solid var(--color-secondary);">
+            <h3 style="color: var(--color-primary); margin-top: 0;">The Invitation</h3>
+            <p style="font-style: italic; font-size: 1.1rem; color: var(--color-dark); margin: 1rem 0;">
+                "It is not good that the man should be alone." — Genesis 2:18
+            </p>
+            <p>
+                From the very beginning, God's design for human freedom includes the "other." We are called not to isolation, but to communion. In the presence of others—in families, communities, friendships, and faith—we discover our truest selves and exercise our deepest freedom. This freedom is not diminished by our bonds to others; rather, it is perfected through love.
+            </p>
+            <p style="font-weight: 500; color: var(--color-primary);">
+                May we each discover and live out the beautiful freedom that comes through loving the "other" as ourselves.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>The Essential Role of the "Other" in Individual Freedom</strong></p>
+        <p>A Demonstration of Learning Project | RS Roman Catholic 35 | High School Religious Studies</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+            Created with reverence for Catholic teaching and with gratitude for the communion of saints
+        </p>
+        <p style="margin-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 1rem; font-size: 0.9rem;">
+            © 2025 | All references to Catholic teaching are drawn from official Church documents and Scripture
+        </p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script>
+        // Smooth scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on page load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
